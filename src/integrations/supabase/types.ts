@@ -107,7 +107,9 @@ export type Database = {
           business_name: string | null
           business_number: string | null
           created_at: string
+          full_name: string | null
           id: string
+          phone: string | null
           updated_at: string
         }
         Insert: {
@@ -115,7 +117,9 @@ export type Database = {
           business_name?: string | null
           business_number?: string | null
           created_at?: string
+          full_name?: string | null
           id: string
+          phone?: string | null
           updated_at?: string
         }
         Update: {
@@ -123,7 +127,9 @@ export type Database = {
           business_name?: string | null
           business_number?: string | null
           created_at?: string
+          full_name?: string | null
           id?: string
+          phone?: string | null
           updated_at?: string
         }
         Relationships: []
