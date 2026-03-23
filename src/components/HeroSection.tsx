@@ -1,6 +1,31 @@
 import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
+
+const useTypewriter = (text: string, typeSpeed = 100, deleteSpeed = 60, pauseDuration = 2000) => {
+  const [displayed, setDisplayed] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!isDeleting && displayed.length < text.length) {
+      timeout = setTimeout(() => setDisplayed(text.slice(0, displayed.length + 1)), typeSpeed);
+    } else if (!isDeleting && displayed.length === text.length) {
+      timeout = setTimeout(() => setIsDeleting(true), pauseDuration);
+    } else if (isDeleting && displayed.length > 0) {
+      timeout = setTimeout(() => setDisplayed(text.slice(0, displayed.length - 1)), deleteSpeed);
+    } else if (isDeleting && displayed.length === 0) {
+      timeout = setTimeout(() => setIsDeleting(false), 500);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayed, isDeleting, text, typeSpeed, deleteSpeed, pauseDuration]);
+
+  return displayed;
+};
 
 const HeroSection = () => {
+  const animatedText = useTypewriter("reach more people", 120, 80, 2500);
   return (
     <section id="home" className="min-h-screen bg-background pt-20 lg:pt-0">
       <div className="container mx-auto px-6 h-screen flex items-center">
@@ -34,7 +59,10 @@ const HeroSection = () => {
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
                 Help small businesses{" "}
-                <span className="text-gradient">reach more people</span>{" "}
+                <span className="text-gradient inline-block min-w-[1ch]">
+                  {animatedText}
+                  <span className="inline-block w-[3px] h-[1em] bg-primary ml-1 animate-pulse align-middle" />
+                </span>{" "}
                 and expand beyond their local area
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl">
