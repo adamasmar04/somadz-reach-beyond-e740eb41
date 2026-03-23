@@ -64,6 +64,10 @@ const CreateAd = () => {
   // Step 2
   const [selectedPlan, setSelectedPlan] = useState("basic");
 
+  // Step 2 extras
+  const [adPrice, setAdPrice] = useState("");
+  const [negotiable, setNegotiable] = useState(false);
+
   // Step 3
   const [mediaFiles, setMediaFiles] = useState<File[]>([]);
   const [mediaPreviews, setMediaPreviews] = useState<string[]>([]);
