@@ -59,7 +59,10 @@ const HeroSection = () => {
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
                 Help small businesses{" "}
-                <span className="text-gradient">reach more people</span>{" "}
+                <span className="text-gradient inline-block min-w-[1ch]">
+                  {animatedText}
+                  <span className="inline-block w-[3px] h-[1em] bg-primary ml-1 animate-pulse align-middle" />
+                </span>{" "}
                 and expand beyond their local area
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl">
