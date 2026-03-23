@@ -23,7 +23,6 @@ const Header = () => {
         { label: "Home", href: "/" },
         { label: "Live Ads", href: "/ads" },
         { label: "How It Works", href: "/#how-it-works" },
-        ...(user ? [{ label: "My Ads", href: "/profile" }] : []),
       ];
 
   const handleNav = (href: string) => {
@@ -71,6 +70,15 @@ const Header = () => {
                 <Button className="hero-button" onClick={() => navigate("/create-ad")}>
                   Create Ad
                 </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => navigate("/profile")}
+                  title="My Profile"
+                  className="rounded-full border border-border hover:border-primary"
+                >
+                  <User className="w-5 h-5" />
+                </Button>
                 <Button variant="ghost" size="icon" onClick={handleSignOut} title="Sign out">
                   <LogOut className="w-5 h-5" />
                 </Button>
@@ -103,6 +111,9 @@ const Header = () => {
               <>
                 <Button className="hero-button w-full" onClick={() => { setMenuOpen(false); navigate("/create-ad"); }}>
                   Create Ad
+                </Button>
+                <Button variant="outline" className="w-full border-border" onClick={() => { setMenuOpen(false); navigate("/profile"); }}>
+                  <User className="w-4 h-4 mr-2" /> My Profile
                 </Button>
                 <Button variant="outline" className="w-full border-border" onClick={handleSignOut}>
                   <LogOut className="w-4 h-4 mr-2" /> Sign Out
