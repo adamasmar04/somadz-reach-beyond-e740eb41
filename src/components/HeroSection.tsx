@@ -1,31 +1,37 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 
-const useTypewriter = (text: string, typeSpeed = 100, deleteSpeed = 60, pauseDuration = 2000) => {
+const phrases = ["reach more people", "grow your brand", "boost your sales", "find new customers", "expand your reach"];
+
+const useTypewriter = (texts: string[], typeSpeed = 100, deleteSpeed = 60, pauseDuration = 2000) => {
   const [displayed, setDisplayed] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [textIndex, setTextIndex] = useState(0);
+
+  const currentText = texts[textIndex];
 
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>;
 
-    if (!isDeleting && displayed.length < text.length) {
-      timeout = setTimeout(() => setDisplayed(text.slice(0, displayed.length + 1)), typeSpeed);
-    } else if (!isDeleting && displayed.length === text.length) {
+    if (!isDeleting && displayed.length < currentText.length) {
+      timeout = setTimeout(() => setDisplayed(currentText.slice(0, displayed.length + 1)), typeSpeed);
+    } else if (!isDeleting && displayed.length === currentText.length) {
       timeout = setTimeout(() => setIsDeleting(true), pauseDuration);
     } else if (isDeleting && displayed.length > 0) {
-      timeout = setTimeout(() => setDisplayed(text.slice(0, displayed.length - 1)), deleteSpeed);
+      timeout = setTimeout(() => setDisplayed(currentText.slice(0, displayed.length - 1)), deleteSpeed);
     } else if (isDeleting && displayed.length === 0) {
+      setTextIndex((prev) => (prev + 1) % texts.length);
       timeout = setTimeout(() => setIsDeleting(false), 500);
     }
 
     return () => clearTimeout(timeout);
-  }, [displayed, isDeleting, text, typeSpeed, deleteSpeed, pauseDuration]);
+  }, [displayed, isDeleting, currentText, texts.length, typeSpeed, deleteSpeed, pauseDuration]);
 
   return displayed;
 };
 
 const HeroSection = () => {
-  const animatedText = useTypewriter("reach more people", 120, 80, 2500);
+  const animatedText = useTypewriter(phrases, 120, 80, 2500);
   return (
     <section id="home" className="min-h-screen bg-background pt-20 lg:pt-0">
       <div className="container mx-auto px-6 h-screen flex items-center">
