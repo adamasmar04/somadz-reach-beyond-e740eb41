@@ -20,8 +20,10 @@ const useTypewriter = (texts: string[], typeSpeed = 100, deleteSpeed = 60, pause
     } else if (isDeleting && displayed.length > 0) {
       timeout = setTimeout(() => setDisplayed(currentText.slice(0, displayed.length - 1)), deleteSpeed);
     } else if (isDeleting && displayed.length === 0) {
-      setTextIndex((prev) => (prev + 1) % texts.length);
-      timeout = setTimeout(() => setIsDeleting(false), 500);
+      timeout = setTimeout(() => {
+        setTextIndex((prev) => (prev + 1) % texts.length);
+        setIsDeleting(false);
+      }, 500);
     }
 
     return () => clearTimeout(timeout);
