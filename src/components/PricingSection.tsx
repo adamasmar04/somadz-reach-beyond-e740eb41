@@ -100,6 +100,7 @@ const PricingSection = () => {
                 <Button 
                   className={`w-full ${plan.recommended ? 'hero-button' : 'border border-primary text-primary hover:bg-primary hover:text-primary-foreground'}`}
                   variant={plan.recommended ? 'default' : 'outline'}
+                  onClick={() => navigate("/signup")}
                 >
                   {plan.recommended ? 'Get Started' : 'Choose Plan'}
                 </Button>

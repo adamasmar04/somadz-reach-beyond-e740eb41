@@ -37,7 +37,7 @@ const VideoSection = () => {
                 <span className="text-foreground">Marketplace integration for maximum reach</span>
               </div>
             </div>
-            <Button className="hero-button">
+            <Button className="hero-button" onClick={() => navigate("/signup")}>
               Start Free Trial
             </Button>
           </div>
