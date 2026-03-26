@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const phrases = ["reach more people", "grow your brand", "boost your sales", "find new customers", "expand your reach"];
 
@@ -34,6 +35,7 @@ const useTypewriter = (texts: string[], typeSpeed = 100, deleteSpeed = 60, pause
 
 const HeroSection = () => {
   const animatedText = useTypewriter(phrases, 120, 80, 2500);
+  const navigate = useNavigate();
   return (
     <section id="home" className="min-h-screen bg-background pt-24">
       <div className="container mx-auto px-6 h-screen flex items-center">
@@ -81,10 +83,10 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button className="hero-button text-lg px-10 py-6">
+              <Button className="hero-button text-lg px-10 py-6" onClick={() => navigate("/signup")}>
                 Get Started
               </Button>
-              <Button variant="outline" className="text-lg px-10 py-6 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+              <Button variant="outline" className="text-lg px-10 py-6 border-primary text-primary hover:bg-primary hover:text-primary-foreground" onClick={() => navigate("/ads")}>
                 Watch Demo
               </Button>
             </div>
