@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const phrases = ["reach more people", "grow your brand", "boost your sales", "find new customers", "expand your reach"];
 
