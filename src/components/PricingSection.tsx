@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 const PricingSection = () => {
   const plans = [
