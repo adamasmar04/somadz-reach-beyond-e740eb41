@@ -33,11 +33,17 @@ const LiveAds = () => {
     setLoading(false);
   };
 
+  const now = new Date();
   const filteredAds = ads.filter(
-    (ad) =>
-      ad.headline.toLowerCase().includes(search.toLowerCase()) ||
-      ad.business_name.toLowerCase().includes(search.toLowerCase()) ||
-      (ad.tags && ad.tags.toLowerCase().includes(search.toLowerCase()))
+    (ad) => {
+      const isExpired = new Date(ad.expires_at).getTime() <= now.getTime();
+      if (isExpired) return false;
+      return (
+        ad.headline.toLowerCase().includes(search.toLowerCase()) ||
+        ad.business_name.toLowerCase().includes(search.toLowerCase()) ||
+        (ad.tags && ad.tags.toLowerCase().includes(search.toLowerCase()))
+      );
+    }
   );
 
   const getTimeRemaining = (expiresAt: string) => {
