@@ -83,10 +83,10 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button className="hero-button text-lg px-10 py-6">
+              <Button className="hero-button text-lg px-10 py-6" onClick={() => navigate("/signup")}>
                 Get Started
               </Button>
-              <Button variant="outline" className="text-lg px-10 py-6 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+              <Button variant="outline" className="text-lg px-10 py-6 border-primary text-primary hover:bg-primary hover:text-primary-foreground" onClick={() => navigate("/ads")}>
                 Watch Demo
               </Button>
             </div>
