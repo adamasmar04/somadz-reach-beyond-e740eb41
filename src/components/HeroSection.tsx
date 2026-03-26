@@ -35,6 +35,7 @@ const useTypewriter = (texts: string[], typeSpeed = 100, deleteSpeed = 60, pause
 
 const HeroSection = () => {
   const animatedText = useTypewriter(phrases, 120, 80, 2500);
+  const navigate = useNavigate();
   return (
     <section id="home" className="min-h-screen bg-background pt-24">
       <div className="container mx-auto px-6 h-screen flex items-center">
