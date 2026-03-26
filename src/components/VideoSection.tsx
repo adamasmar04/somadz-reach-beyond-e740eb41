@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 
 const VideoSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
