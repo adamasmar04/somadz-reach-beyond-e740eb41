@@ -14,6 +14,16 @@ import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import NotFound from "./pages/NotFound";
+import AdminLayout from "./components/admin/AdminLayout";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminAds from "./pages/admin/AdminAds";
+import AdminUsers from "./pages/admin/AdminUsers";
+import AdminPayments from "./pages/admin/AdminPayments";
+import AdminPlans from "./pages/admin/AdminPlans";
+import AdminReports from "./pages/admin/AdminReports";
+import AdminFeatured from "./pages/admin/AdminFeatured";
+import AdminSettings from "./pages/admin/AdminSettings";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +44,18 @@ const App = () => (
             <Route path="/signup" element={<Signup />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
+            {/* Admin Routes */}
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminDashboard />} />
+              <Route path="ads" element={<AdminAds />} />
+              <Route path="users" element={<AdminUsers />} />
+              <Route path="payments" element={<AdminPayments />} />
+              <Route path="plans" element={<AdminPlans />} />
+              <Route path="reports" element={<AdminReports />} />
+              <Route path="featured" element={<AdminFeatured />} />
+              <Route path="settings" element={<AdminSettings />} />
+            </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
