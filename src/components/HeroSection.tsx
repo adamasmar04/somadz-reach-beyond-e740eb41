@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import heroPortrait from "@/assets/hero-portrait.jpg";
+
 
 const phrases = ["reach more people", "grow your brand", "boost your sales", "find new customers", "expand your reach"];
 
@@ -43,26 +45,22 @@ const HeroSection = () => {
           {/* Left Side - Illustration */}
           <div className="hidden lg:flex justify-center animate-float">
             <div className="relative">
-              <div className="w-96 h-96 bg-gradient-to-br from-primary/20 to-purple-600/20 rounded-full blur-3xl absolute inset-0"></div>
-              <div className="relative z-10 bg-card/50 backdrop-blur-sm p-8 rounded-3xl border border-border shadow-2xl">
-                <div className="space-y-6">
-                  <div className="h-4 bg-gradient-to-r from-primary to-purple-400 rounded-full w-3/4"></div>
-                  <div className="h-3 bg-muted rounded-full w-1/2"></div>
-                  <div className="h-3 bg-muted rounded-full w-2/3"></div>
-                  <div className="flex space-x-4 pt-4">
-                    <div className="h-12 w-12 bg-primary rounded-xl"></div>
-                    <div className="h-12 w-12 bg-purple-500 rounded-xl"></div>
-                    <div className="h-12 w-12 bg-blue-500 rounded-xl"></div>
-                  </div>
-                  <div className="pt-4">
-                    <div className="h-8 bg-gradient-to-r from-primary to-purple-600 rounded-lg w-full flex items-center justify-center text-primary-foreground text-sm font-semibold">
-                      📈 Growth Analytics
-                    </div>
-                  </div>
+              <div className="w-96 h-96 bg-gradient-to-br from-primary/30 to-purple-600/30 rounded-full blur-3xl absolute inset-0"></div>
+              <div className="relative z-10 rounded-3xl border border-border shadow-2xl overflow-hidden bg-card/50 backdrop-blur-sm">
+                <img
+                  src={heroPortrait}
+                  alt="Entrepreneur working late on SomAdz campaigns"
+                  className="w-[420px] h-[480px] object-cover"
+                  loading="eager"
+                />
+                <div className="absolute bottom-4 left-4 right-4 bg-background/80 backdrop-blur-md rounded-xl px-4 py-3 border border-border">
+                  <div className="text-sm font-semibold text-gradient">📈 Growth Analytics</div>
+                  <div className="text-xs text-muted-foreground">Late-night hustle, real results</div>
                 </div>
               </div>
             </div>
           </div>
+
 
           {/* Right Side - Main Content */}
           <div className="text-center lg:text-left space-y-8 animate-fade-in">
