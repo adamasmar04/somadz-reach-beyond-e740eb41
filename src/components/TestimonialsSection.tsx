@@ -20,7 +20,37 @@ const TestimonialsSection = () => {
     {
       quote: "From 50 to 5,000 customers in 6 months. SomAdz's advertising platform delivered results beyond our expectations.",
       author: "Jennifer Kim",
-      role: "Fitness Studio Owner", 
+      role: "Fitness Studio Owner",
+      rating: 5
+    },
+    {
+      quote: "Waxaan ku helay macaamiil cusub maalin walba. SomAdz waa platform-ka ugu fiican ee ganacsiga Soomaalida.",
+      author: "Abdirahman Hassan",
+      role: "Tech Shop Owner, Mogadishu",
+      rating: 5
+    },
+    {
+      quote: "The VIP membership unlocked premium placement that doubled our monthly leads. Worth every dollar!",
+      author: "Layla Ahmed",
+      role: "Fashion Boutique Owner",
+      rating: 5
+    },
+    {
+      quote: "Customer support is incredible — they helped me launch my first ad campaign in under 10 minutes.",
+      author: "Daniel Okafor",
+      role: "Digital Marketer",
+      rating: 5
+    },
+    {
+      quote: "I run three businesses on SomAdz now. The analytics dashboard tells me exactly what's working.",
+      author: "Fatima Noor",
+      role: "Multi-Business Entrepreneur",
+      rating: 5
+    },
+    {
+      quote: "Best return on investment I've ever seen. My real estate listings sell 3x faster with SomAdz.",
+      author: "Omar Yusuf",
+      role: "Real Estate Agent",
       rating: 5
     }
   ];
@@ -43,9 +73,8 @@ const TestimonialsSection = () => {
         </div>
 
         <div className="max-w-4xl mx-auto relative">
-          {/* Testimonial Cards */}
           <div className="overflow-hidden">
-            <div 
+            <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
@@ -73,15 +102,14 @@ const TestimonialsSection = () => {
             </div>
           </div>
 
-          {/* Navigation Dots */}
-          <div className="flex justify-center space-x-2 mt-8">
+          <div className="flex justify-center flex-wrap gap-2 mt-8">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentSlide 
-                    ? "bg-primary scale-125" 
+                  index === currentSlide
+                    ? "bg-primary scale-125"
                     : "bg-muted hover:bg-primary/50"
                 }`}
               />

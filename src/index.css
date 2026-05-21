@@ -142,12 +142,105 @@
   .text-gradient {
     @apply bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent;
   }
-  
+
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
-  
+
   .shadow-elevated {
     box-shadow: var(--shadow-elevated);
   }
+
+  /* VIP Gold Palette */
+  .text-gold-gradient {
+    background-image: linear-gradient(135deg, #fff3b0 0%, #ffd700 25%, #b8860b 55%, #ffd700 80%, #fff8dc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .vip-card {
+    position: relative;
+    background:
+      radial-gradient(circle at 20% 0%, rgba(255, 215, 0, 0.18), transparent 60%),
+      linear-gradient(160deg, #1a1306 0%, #0d0a05 60%, #08060a 100%);
+    border: 1px solid rgba(255, 215, 0, 0.35);
+    box-shadow:
+      0 0 0 1px rgba(255, 215, 0, 0.08) inset,
+      0 30px 80px -20px rgba(255, 200, 0, 0.25),
+      0 10px 40px -10px rgba(0, 0, 0, 0.6);
+  }
+
+  .vip-card-elite {
+    position: relative;
+    background:
+      radial-gradient(circle at 50% -10%, rgba(255, 215, 0, 0.35), transparent 65%),
+      linear-gradient(160deg, #2a1d05 0%, #150f04 55%, #08060a 100%);
+    border: 1px solid rgba(255, 215, 0, 0.6);
+    box-shadow:
+      0 0 0 1px rgba(255, 215, 0, 0.15) inset,
+      0 0 60px -10px rgba(255, 200, 0, 0.55),
+      0 30px 80px -10px rgba(0, 0, 0, 0.7);
+  }
+
+  .vip-border-shine::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(120deg, rgba(255, 215, 0, 0) 30%, rgba(255, 235, 150, 0.9) 50%, rgba(255, 215, 0, 0) 70%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    background-size: 200% 200%;
+    animation: vip-shine 4s linear infinite;
+    pointer-events: none;
+  }
+
+  .vip-button {
+    background: linear-gradient(135deg, #fff3b0 0%, #ffd700 40%, #b8860b 100%);
+    color: #1a1306;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow:
+      0 10px 30px -5px rgba(255, 200, 0, 0.5),
+      0 0 0 1px rgba(255, 235, 150, 0.6) inset;
+    transition: all 0.3s ease;
+  }
+  .vip-button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 15px 40px -5px rgba(255, 200, 0, 0.7),
+      0 0 0 1px rgba(255, 235, 150, 0.8) inset;
+  }
+
+  .vip-outline-button {
+    background: transparent;
+    color: #ffd700;
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    transition: all 0.3s ease;
+  }
+  .vip-outline-button:hover {
+    background: rgba(255, 215, 0, 0.08);
+    border-color: rgba(255, 215, 0, 0.9);
+    color: #fff3b0;
+  }
+
+  @keyframes vip-shine {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  @keyframes vip-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .vip-float { animation: vip-float 4s ease-in-out infinite; }
+
+  @keyframes vip-pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+    50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.8); }
+  }
+  .vip-crown-glow { animation: vip-pulse-glow 2.5s ease-in-out infinite; }
 }
